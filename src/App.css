@@ -1,7 +1,19 @@
-.outer{
+.calc-outer{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
+}
+
+.calc-inner{
+  width: 408px;
+  height: 400px;
+  
+}
+
+.calc-input {
+  display: flex;
+  flex-wrap: wrap;
+  border: 4px solid #8ccae6;
 }
