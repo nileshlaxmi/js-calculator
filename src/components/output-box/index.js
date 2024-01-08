@@ -1,9 +1,10 @@
 import "./style.css";
 
-const OutputBox = ({ value }) => {
+const OutputBox = ({ value, inputText }) => {
   return (
     <div className="calc-op-box">
-      <label>{value}</label>
+      <label className="calc-op-box-ipText">{inputText}</label>
+      <label className="calc-op-box-result">{value}</label>
     </div>
   );
 };

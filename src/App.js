@@ -8,9 +8,26 @@ function App() {
   const [value, setValue] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
 
-  const onBtnClick = (inputItem) => {
-    setValue();
-    setSelectedValue(inputItem.value)
+  const onBtnClick = (inputItem, type) => {
+    switch (type) {
+      case "clear":
+        onClear();
+        break;
+      default:
+        setValue();
+        setSelectedValue(inputItem.value);
+    }
+    // if(inputItem.id === "clear"){
+    //   onClear()
+    // } else {
+    //   setValue();
+    //   setSelectedValue(inputItem.value)
+    // }
+  };
+
+  const onClear = () => {
+    setValue("");
+    setSelectedValue("");
   };
 
   return (
@@ -23,7 +40,11 @@ function App() {
           {calculatorOperandsArray.map((item, index) => {
             return (
               <Fragment key={`${item.label}-${index}`}>
-                <InputBox inputItem={item} onBtnClick={onBtnClick} />
+                <InputBox
+                  inputItem={item}
+                  onBtnClick={onBtnClick}
+                  onClear={onClear}
+                />
               </Fragment>
             );
           })}
